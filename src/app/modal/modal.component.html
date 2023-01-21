@@ -1,22 +1,24 @@
 <div class="grid h-3/4 place-items-center">
   <div class="mb-3 text-center">
     <label class="text-3xl inline-block mb-2">Location:</label>
-    <p class="text-2xl text-green-300"> {{ output.loc }} </p>
+    <p class="text-2xl text-green-300 font-semibold"> {{ output.loc | titlecase }} </p>
   </div>
   <div class="mb-3 text-center">
     <label class="text-3xl inline-block mb-2">Type:</label>
-    <p class="text-2xl text-green-300"> {{ output.type }} </p>
+    <p class="text-2xl text-green-300 font-semibold"> {{ output.type }} </p>
   </div>
   <div class="mb-3 text-center">
     <label class="text-3xl inline-block mb-2">Material:</label>
-    <p class="text-2xl text-green-300"> {{ output.mat }} </p>
+    <p class="text-2xl text-green-300 font-semibold"> {{ output.mat }} </p>
   </div>
   <div class="mb-3 text-center">
     <label class="text-3xl inline-block mb-2">Size (Square Feet):</label>
-    <p class="text-2xl text-green-300"> {{ output.sq }} </p>
+    <p class="text-2xl text-green-300 font-semibold"> {{ output.sq }} </p>
   </div>
   <div class="mb-3">
-    <button class="mt-10 h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 rounded-lg focus:shadow-outline hover:bg-indigo-800 bg-indigo-500" (click)="randomSelect()">
+    <button class="mt-10 h-12 px-6 m-2 text-lg text-indigo-100
+    transition-colors duration-150 rounded-lg focus:shadow-outline
+  hover:bg-indigo-800 bg-indigo-500" (click)="randomSelect()">
       Randomize
     </button>
   </div>

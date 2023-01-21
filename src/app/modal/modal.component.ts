@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-modal',
@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  public project = {
-    location: ['Desert', 'Rainforest', 'Mountain', 'Beach', 'Plains', 'Hills'],
+  @Output() imgSelected = new EventEmitter<string>()
+
+  public bgColor = 'bg-slate-800'
+
+
+  private project = {
+    location: ['desert', 'rainforest', 'mountain', 'beach', 'plains', 'hills'],
     build: ['Semi-detached House', 'Single-detached House', 'Row House', 'Apartments', 'Mobile Home'],
     material: ['Wood', 'Concrete'],
     si: ['700', '850', '900', '950', '1000', '1200', '1400', '1700', '2100', '3000', '4000'],
@@ -23,6 +28,18 @@ export class ModalComponent implements OnInit {
 
   }
 
+  /*public backgrounds = {
+
+    desert: 'bg-stone-500',
+    rainforest: 'bg-green-500',
+    mountain: 'bg-gray-300',
+    beach: 'bg-blue-400',
+    plains: 'bg-yellow-500',
+    hills: 'bg-pink-200'
+
+  }
+  */
+
   randomSelect() {
     const loc = this.project.location[Math.floor(Math.random() * this.project.location.length)]
     const type = this.project.build[Math.floor(Math.random() * this.project.build.length)]
@@ -33,6 +50,12 @@ export class ModalComponent implements OnInit {
     this.output.type = type
     this.output.mat = mat
     this.output.sq = sq
+
+    //this.bgColor = this.backgrounds[loc as keyof typeof this.backgrounds]
+    this.bgColor = `bg-${loc}`
+
+    this.imgSelected.emit(this.bgColor)
+
   }
 
   constructor() { }

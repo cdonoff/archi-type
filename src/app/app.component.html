@@ -1,3 +1,4 @@
-<h1 class="text-gray-300 place-self-center text-center text-6xl mt-10 mb-32">Design Picker</h1>
-
-<app-modal></app-modal>
+<body [ngClass]="bgColor" class=" text-gray-200 font-sans pb-8 bg-no-repeat bg-cover">
+<h1 class="text-gray-300 place-self-center text-center text-6xl pt-10 pb-20">Design Picker</h1>
+<app-modal (imgSelected)="setImg($event)"></app-modal>
+</body>
